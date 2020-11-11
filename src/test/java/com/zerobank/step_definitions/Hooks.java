@@ -1,4 +1,4 @@
-package com.zerobank;
+package com.zerobank.step_definitions;
 
 import com.zerobank.utilities.Driver;
 import io.cucumber.java.After;
