@@ -20,12 +20,6 @@ public abstract class BasePage {
 
 
 
-    public void navigateTo(String tabString){
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
 
-        WebElement tab = Driver.getDriver().findElement(By.linkText(tabString));
-
-
-    }
 
 }
