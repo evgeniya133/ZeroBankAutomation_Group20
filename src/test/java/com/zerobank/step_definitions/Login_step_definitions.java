@@ -14,7 +14,7 @@ public class Login_step_definitions {
 
     @Given("user is on login page")
     public void user_is_on_login_page() {
-            Driver.getDriver().get(ConfigurationReader.getProperty("URL"));
+           loginPage.getUrl();
     }
 
     @When("user logs in")
@@ -24,9 +24,23 @@ public class Login_step_definitions {
 
     @Then("user should see {string} page displayed")
     public void user_should_see_page_displayed(String expectedTitle) {
-        String actualTitle = loginPage.getPageTitleText();
-        Assert.assertEquals("Title is not matching", expectedTitle, actualTitle);
+        loginPage.verifyTitle(expectedTitle);
     }
 
+
+
+    // negative Scenario
+    @When("user logs in with {string} username and {string} password")
+    public void user_logs_in_with_username_and_password(String string, String string2) {
+        loginPage.invalidLogin(string,string2);
+    }
+
+
+
+
+    @Then("user verifies {string} message is displayed")
+    public void user_verifies_message_is_displayed(String string) {
+        loginPage.getWarningMessage(string);
+    }
 
 }
