@@ -22,6 +22,7 @@ public abstract class BasePage {
 
     public void verifyTitle(String expectedPageTitle){
         Assert.assertTrue(wait.until(ExpectedConditions.titleIs(expectedPageTitle)));
+
     }
 
 

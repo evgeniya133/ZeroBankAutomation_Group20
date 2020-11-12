@@ -14,8 +14,10 @@ public class AccountActivity_step_definitions {
             accountActivityPage.navigateTo(string);
     }
 
-    @Then("user should see {string} page displayed")
-    public void user_should_see_page_displayed(String expectedTitle) {
-            accountActivityPage.verifyTitle(expectedTitle);
+    @Then("transactions table should have column names {string}, {string}, {string}, {string}")
+    public void transactions_table_should_have_column_names(String string, String string2, String string3, String string4) {
+            accountActivityPage.verifyHeaders(string, string2, string3, string4);
     }
+
+
 }
