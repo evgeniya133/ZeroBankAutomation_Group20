@@ -21,15 +21,13 @@ public class LoginPage extends BasePage {
     public void login(){
         String usernameInput = ConfigurationReader.getProperty("username");
         String passwordInput = ConfigurationReader.getProperty("password");
-
-        username.sendKeys(usernameInput);
-        password.sendKeys(passwordInput, Keys.ENTER);
+        wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(usernameInput);
+        wait.until(ExpectedConditions.visibilityOf(password)).sendKeys(passwordInput, Keys.ENTER);
     }
 
     public String getErrorMessage(){
         wait.until(ExpectedConditions.visibilityOf(errorMessage));
-        String errorText = errorMessage.getText().trim();
-        return errorText;
+        return errorMessage.getText().trim(); // deleted unnecessary variable
     }
 
     public String getPageTitleText(){
