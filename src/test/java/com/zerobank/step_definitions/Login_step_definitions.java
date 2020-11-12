@@ -15,7 +15,6 @@ public class Login_step_definitions {
     @Given("user is on login page")
     public void user_is_on_login_page() {
       loginPage.getUrl();
-
     }
 
     @When("user logs in")
@@ -23,11 +22,22 @@ public class Login_step_definitions {
      loginPage.login();
     }
 
-
     @Then("user should see {string} displayed")
     public void user_should_see_displayed(String string) {
      loginPage.verifyTitle(string);
     }
   
+
+    // negative Scenario
+    @When("user logs in with {string} username and {string} password")
+    public void user_logs_in_with_username_and_password(String string, String string2) {
+        loginPage.invalidLogin(string,string2);
+    }
+
+
+    @Then("user verifies {string} message is displayed")
+    public void user_verifies_message_is_displayed(String string) {
+        loginPage.getWarningMessage(string);
+    }
 
 }
