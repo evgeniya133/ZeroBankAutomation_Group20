@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources",
         glue = "com/zerobank/step_definitions",
         dryRun = false,
-        tags = "@title"
+        tags = "@transaction_table"
 
 )
 public class CucumberRunner {

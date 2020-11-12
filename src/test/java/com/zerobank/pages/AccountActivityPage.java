@@ -1,5 +1,6 @@
 package com.zerobank.pages;
 
+import com.zerobank.utilities.BrowserUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -20,19 +21,14 @@ public class AccountActivityPage extends BasePage{
         wait.until(ExpectedConditions.titleIs(titleExpected));
     }
 
-    public void verifyHeaders(String string1, String string2, String string3, String string4){
 
-        List<WebElement> headers = transactionTable.findElements(By.tagName("th"));
-        List<String> actualHeadersText = new ArrayList<>();
 
-            for (WebElement each : headers) {
-               actualHeadersText.add(each.getText());
-           }
+    public void verifyHeaders(List<String> expectedHeaderText){
 
-        List<String> expectedHeadersText = new ArrayList<>();
-        expectedHeadersText.addAll(Arrays.asList(string1, string2, string3, string4));
+        List<WebElement> headerElements = transactionTable.findElements(By.tagName("th"));
+        List<String> actualHeadersText = BrowserUtils.getElementsText(headerElements);
 
-        Assert.assertEquals("Headers are not matching", expectedHeadersText, actualHeadersText);
+        Assert.assertEquals("Headers are not matching", expectedHeaderText, actualHeadersText);
 
     }
 
