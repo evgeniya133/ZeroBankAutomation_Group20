@@ -30,10 +30,10 @@ public class LoginPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(password)).sendKeys(passwordInput, Keys.ENTER);
     }
 
-//    public String getErrorMessage(){
-//        wait.until(ExpectedConditions.visibilityOf(errorMessage));
-//        return errorMessage.getText().trim(); // deleted unnecessary variable
-//    }
+   public String getErrorMessage(){
+       wait.until(ExpectedConditions.visibilityOf(errorMessage));
+       return errorMessage.getText().trim(); // deleted unnecessary variable
+   }
 
     public void verifyTitle(String expectedPageTitle){
         Assert.assertTrue(wait.until(ExpectedConditions.titleIs(expectedPageTitle)));
