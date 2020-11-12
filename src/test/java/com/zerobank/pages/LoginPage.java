@@ -35,10 +35,6 @@ public class LoginPage extends BasePage {
         Assert.assertEquals(errorMessage.getText(),message);
     }
 
-    public void verifyTitle(String expectedPageTitle){
-        Assert.assertTrue(wait.until(ExpectedConditions.titleIs(expectedPageTitle)));
-    }
-
     // negative Scenario
     public void invalidLogin(String worngUsername, String wrongPassword){
         wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(worngUsername);
