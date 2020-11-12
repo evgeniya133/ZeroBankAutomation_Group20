@@ -10,7 +10,7 @@ Feature: As user I want to be able to login with valid credentials
   @valid_credentials
   Scenario: Login with valid credentials
     When user logs in
-    Then user should see "Account Summary Page" displayed
+    Then user should see "Zero - Account Summary" page displayed
 
   @negative
   Scenario Outline: Invalid credentials
