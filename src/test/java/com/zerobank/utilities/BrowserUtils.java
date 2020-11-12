@@ -6,6 +6,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BrowserUtils {
 
     private static WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
@@ -40,6 +43,14 @@ public class BrowserUtils {
         element.sendKeys(text);
         wait.until(ExpectedConditions.attributeToBe(element, "value", text));
         System.out.println("Entering text: " + text);
+    }
+
+    public static List<String> getElementsText(List<WebElement> list) {
+        List<String> elementsText = new ArrayList<>();
+        for (WebElement each : list) {
+            elementsText.add(each.getText());
+        }
+        return elementsText;
     }
 
 }
