@@ -39,8 +39,6 @@ public class LoginPage extends BasePage {
         Assert.assertTrue(wait.until(ExpectedConditions.titleIs(expectedPageTitle)));
     }
 
-
-
     // negative Scenario
     public void invalidLogin(String worngUsername, String wrongPassword){
 
