@@ -8,53 +8,35 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.Properties;
-
 public class LoginPage extends BasePage {
 
-    @FindBy(xpath = "//input[@name='user_login']")
-    private WebElement inputUsername;
+    @FindBy(id = "user_login")
+    private WebElement username;
 
-    @FindBy(xpath = "//input[@name='user_password']")
-    private WebElement inputPassword;
-
-    @FindBy(xpath = "//input[@type='submit']")
-    private WebElement SignInButton;
+    @FindBy(id = "user_password")
+    private WebElement password;
 
     @FindBy(css = "[class='alert alert-error']")
-    private WebElement warningMessage;
-
-    public void getUrl(){
-        Driver.getDriver().get(ConfigurationReader.getProperty("URL"));
-    }
-
+    private WebElement errorMessage;
 
     public void login(){
-        wait.until(ExpectedConditions.visibilityOf(inputUsername));
-        inputUsername.sendKeys(ConfigurationReader.getProperty("username"));
-
-        wait.until(ExpectedConditions.visibilityOf(inputPassword));
-        inputPassword.sendKeys(ConfigurationReader.getProperty("password"));
-        SignInButton.click();
+        String usernameInput = ConfigurationReader.getProperty("username");
+        String passwordInput = ConfigurationReader.getProperty("password");
+        wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(usernameInput);
+        wait.until(ExpectedConditions.visibilityOf(password)).sendKeys(passwordInput, Keys.ENTER);
     }
 
+    public String getErrorMessage(){
+        wait.until(ExpectedConditions.visibilityOf(errorMessage));
+        return errorMessage.getText().trim(); // deleted unnecessary variable
+    }
+
+    public String getPageTitleText(){
+        return Driver.getDriver().getTitle().trim();
+    }
 
     public void verifyTitle(String expectedPageTitle){
         Assert.assertTrue(wait.until(ExpectedConditions.titleIs(expectedPageTitle)));
-    }
-
-    // negative Scenario
-    public void invalidLogin(String worngUsername, String wrongPassword){
-    inputUsername.sendKeys(worngUsername);
-    inputPassword.sendKeys(wrongPassword);
-    SignInButton.click();
-    }
-
-
-    public void getWarningMessage(String message){
-        wait.until(ExpectedConditions.visibilityOf(warningMessage));
-        Assert.assertEquals(warningMessage.getText(),message);
-
     }
 
 }
