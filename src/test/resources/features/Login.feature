@@ -1,5 +1,3 @@
-
-
 @login
 Feature: As user I want to be able to login with valid credentials
 
@@ -10,7 +8,7 @@ Feature: As user I want to be able to login with valid credentials
   @valid_credentials
   Scenario: Login with valid credentials
     When user logs in
-    Then user should see "Zero - Account Summary" page displayed
+    Then user should see "Zero - Account Summary" displayed
 
   @negative
   Scenario Outline: Invalid credentials
@@ -18,11 +16,11 @@ Feature: As user I want to be able to login with valid credentials
     Then user verifies "<message>" message is displayed
 
     Examples: data set
-      | username | password | message                         |
-      | username | wrong    | Login and/or password are wrong |
-      | wrong    | password | Login and/or password are wrong |
-      |          | password | Login and/or password are wrong |
-      | username |          | Login and/or password are wrong |
+      | username | password | message                           |
+      | username | wrong    | Login and/or password are wrong.  |
+      | wrong    | password | Login and/or password are wrong.  |
+      |          | password | Login and/or password are wrong.  |
+      | username |          | Login and/or password are wrong.  |
 
 
 

@@ -1,8 +1,8 @@
 package com.zerobank.pages;
 
-import com.sun.xml.internal.rngom.parse.host.Base;
 import com.zerobank.utilities.ConfigurationReader;
 import com.zerobank.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,26 +19,37 @@ public class LoginPage extends BasePage {
     @FindBy(css = "[class='alert alert-error']")
     private WebElement errorMessage;
 
+    public void getUrl(){
+        Driver.getDriver().get(ConfigurationReader.getProperty("URL"));
+    }
+
     public void login(){
         String usernameInput = ConfigurationReader.getProperty("username");
         String passwordInput = ConfigurationReader.getProperty("password");
-
-        username.sendKeys(usernameInput);
-        password.sendKeys(passwordInput, Keys.ENTER);
+        wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(usernameInput);
+        wait.until(ExpectedConditions.visibilityOf(password)).sendKeys(passwordInput, Keys.ENTER);
     }
 
-    public String getErrorMessage(){
+   public String getErrorMessage(){
+       wait.until(ExpectedConditions.visibilityOf(errorMessage));
+       return errorMessage.getText().trim(); // deleted unnecessary variable
+   }
+
+    public void verifyTitle(String expectedPageTitle){
+        Assert.assertTrue(wait.until(ExpectedConditions.titleIs(expectedPageTitle)));
+    }
+
+    // negative Scenario
+    public void invalidLogin(String worngUsername, String wrongPassword){
+
+        wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(worngUsername);
+        wait.until(ExpectedConditions.visibilityOf(password)).sendKeys(wrongPassword, Keys.ENTER);
+    }
+
+
+    public void getWarningMessage(String message){
         wait.until(ExpectedConditions.visibilityOf(errorMessage));
-        String errorText = errorMessage.getText().trim();
-        return errorText;
+        Assert.assertEquals(errorMessage.getText(),message);
+
     }
-
-    public String getPageTitleText(){
-
-        return Driver.getDriver().getTitle().trim();
-    }
-
-
-
-
 }
