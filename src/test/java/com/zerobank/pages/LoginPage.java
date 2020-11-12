@@ -1,6 +1,5 @@
 package com.zerobank.pages;
 
-import com.sun.xml.internal.rngom.parse.host.Base;
 import com.zerobank.utilities.ConfigurationReader;
 import com.zerobank.utilities.Driver;
 import org.openqa.selenium.Keys;
@@ -34,7 +33,6 @@ public class LoginPage extends BasePage {
     }
 
     public String getPageTitleText(){
-
         return Driver.getDriver().getTitle().trim();
     }
 

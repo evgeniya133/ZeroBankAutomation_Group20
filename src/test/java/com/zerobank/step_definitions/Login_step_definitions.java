@@ -20,7 +20,7 @@ public class Login_step_definitions {
     @When("user logs in")
     public void user_logs_in() throws InterruptedException {
             loginPage.login();
-            Thread.sleep(3000);
+            Thread.sleep(3000); //TODO - NO Thread.sleep() - use explicit wait instead
     }
 
     @Then("user should see {string} page displayed")
