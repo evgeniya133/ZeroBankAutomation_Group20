@@ -30,10 +30,10 @@ public class LoginPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(password)).sendKeys(passwordInput, Keys.ENTER);
     }
 
-   public String getErrorMessage(){
-       wait.until(ExpectedConditions.visibilityOf(errorMessage));
-       return errorMessage.getText().trim(); 
-   }
+    public void getErrorMessage(String message){
+        wait.until(ExpectedConditions.visibilityOf(errorMessage));
+        Assert.assertEquals(errorMessage.getText(),message);
+    }
 
     public void verifyTitle(String expectedPageTitle){
         Assert.assertTrue(wait.until(ExpectedConditions.titleIs(expectedPageTitle)));
@@ -41,15 +41,8 @@ public class LoginPage extends BasePage {
 
     // negative Scenario
     public void invalidLogin(String worngUsername, String wrongPassword){
-
         wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(worngUsername);
         wait.until(ExpectedConditions.visibilityOf(password)).sendKeys(wrongPassword, Keys.ENTER);
     }
 
-
-    public void getWarningMessage(String message){
-        wait.until(ExpectedConditions.visibilityOf(errorMessage));
-        Assert.assertEquals(errorMessage.getText(),message);
-
-    }
 }

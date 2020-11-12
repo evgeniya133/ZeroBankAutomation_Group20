@@ -37,7 +37,7 @@ public class Login_step_definitions {
 
     @Then("user verifies {string} message is displayed")
     public void user_verifies_message_is_displayed(String string) {
-        loginPage.getWarningMessage(string);
+        loginPage.getErrorMessage(string);
     }
 
 }
