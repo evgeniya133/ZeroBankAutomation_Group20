@@ -32,7 +32,7 @@ public class LoginPage extends BasePage {
 
    public String getErrorMessage(){
        wait.until(ExpectedConditions.visibilityOf(errorMessage));
-       return errorMessage.getText().trim(); // deleted unnecessary variable
+       return errorMessage.getText().trim(); 
    }
 
     public void verifyTitle(String expectedPageTitle){
