@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
 
         features = "src/test/resources",
         glue = "com/zerobank/step_definitions",
-        dryRun = true,
+        dryRun = false,
         tags = "@valid_credentials"
 
 )
