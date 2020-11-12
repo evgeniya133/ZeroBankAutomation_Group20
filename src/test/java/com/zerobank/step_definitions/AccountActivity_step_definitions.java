@@ -5,6 +5,8 @@ import com.zerobank.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
+import java.util.List;
+
 public class AccountActivity_step_definitions {
 
     AccountActivityPage accountActivityPage = new AccountActivityPage();
@@ -19,9 +21,9 @@ public class AccountActivity_step_definitions {
         accountActivityPage.verifyTitle(string);
     }
 
-    @Then("transactions table should have column names {string}, {string}, {string}, {string}")
-    public void transactions_table_should_have_column_names(String string, String string2, String string3, String string4) {
-            accountActivityPage.verifyHeaders(string, string2, string3, string4);
+    @Then("transactions table should have column names")
+    public void transactions_table_should_have_column_names(List<String> expectedHeaders) {
+        accountActivityPage.verifyHeaders(expectedHeaders);
     }
 
 
