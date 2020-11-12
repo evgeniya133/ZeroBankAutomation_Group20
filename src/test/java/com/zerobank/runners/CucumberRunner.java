@@ -16,8 +16,8 @@ import org.junit.runner.RunWith;
 
         features = "src/test/resources",
         glue = "com/zerobank/step_definitions",
-        dryRun = false,
-        tags = "@login"
+        dryRun = true,
+        tags = "@valid_credentials"
 
 )
 public class CucumberRunner {
