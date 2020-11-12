@@ -20,7 +20,7 @@ public class Login_step_definitions {
     @When("user logs in")
     public void user_logs_in() throws InterruptedException {
             loginPage.login();
-            Thread.sleep(3000);
+            wait();
     }
 
     @Then("user should see {string} page displayed")
