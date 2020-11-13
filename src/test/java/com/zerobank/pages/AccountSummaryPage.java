@@ -29,6 +29,7 @@ public class AccountSummaryPage extends BasePage{
         Assert.assertEquals("Account types are not matching",expectedAccount,actualAccount);
     }
 
+
     public void verifyColumns(List<String>expectedHeader){
         List<WebElement> headerElements = CreditAccountsTable.findElements(By.tagName("th"));
         List<String> actualHeader = BrowserUtils.getElementsText(headerElements);
