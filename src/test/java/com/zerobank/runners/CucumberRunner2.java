@@ -9,17 +9,19 @@ import org.junit.runner.RunWith;
 
         plugin = {
                 "rerun:target/rerun.txt",
-                "json:target/cucumber.json",
-                "pretty",
-                "timeline:target/timeline-report"
+                "json:target/cucumber2.json",
+                "pretty"
         },
 
-        features = "src/test/resources",
+        features = {
+                "src/test/resources"
+        },
+
         glue = "com/zerobank/step_definitions",
         dryRun = false,
         publish = true,
-        tags = "@login"
+        tags = "@savings_dropdown_default"
 
 )
-public class CucumberRunner {
+public class CucumberRunner2 {
 }
