@@ -17,12 +17,6 @@ public class AccountActivityPage extends BasePage{
     @FindBy(css = "table[class='table table-condensed table-hover']")
     private WebElement transactionTable;
 
-    public void verifyTitle(String titleExpected){
-        wait.until(ExpectedConditions.titleIs(titleExpected));
-    }
-
-
-
     public void verifyHeaders(List<String> expectedHeaderText){
 
         List<WebElement> headerElements = transactionTable.findElements(By.tagName("th"));
