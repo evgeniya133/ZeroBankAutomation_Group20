@@ -10,7 +10,7 @@ Feature: As a user I want to be able to navigate in accounts in Accounts Activit
   Scenario: "Account Summary" page displayed
     Then user should see "Zero - Account Summary" page displayed
 
-  @summary_accounts_names
+  @summary_accounts_types
   Scenario: verify Account Summary Sections
     Then user should see  displayed accounts
       | Cash Accounts       |
