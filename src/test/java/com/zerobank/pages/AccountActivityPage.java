@@ -1,6 +1,7 @@
 package com.zerobank.pages;
 
 import com.zerobank.utilities.BrowserUtils;
+import com.zerobank.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -17,6 +18,9 @@ public class AccountActivityPage extends BasePage{
     @FindBy(css = "table[class='table table-condensed table-hover']")
     private WebElement transactionTable;
 
+    @FindBy(id = "aa_accountId")
+    private WebElement accountDropDown;
+
     public void verifyHeaders(List<String> expectedHeaderText){
 
         List<WebElement> headerElements = transactionTable.findElements(By.tagName("th"));
@@ -26,5 +30,13 @@ public class AccountActivityPage extends BasePage{
 
     }
 
+    public void verifySavingsOptionDefault(){
+        wait.until(ExpectedConditions.visibilityOf(accountDropDown));
+
+        String expectedOption = "Savings";
+        String actualOption = BrowserUtils.getSelectDropdown(accountDropDown).getFirstSelectedOption().getText();
+
+        Assert.assertEquals("Savings option is not selected by default! Test Failed!!", expectedOption, actualOption);
+    }
 
 }
