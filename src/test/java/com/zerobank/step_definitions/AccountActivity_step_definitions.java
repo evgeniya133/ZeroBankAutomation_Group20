@@ -26,5 +26,9 @@ public class AccountActivity_step_definitions {
         accountActivityPage.verifyHeaders(expectedHeaders);
     }
 
+    @Then("{string} account should be selected")
+    public void account_should_be_selected(String string) {
+        accountActivityPage.verifySavingsOptionDefault();
+    }
 
 }
