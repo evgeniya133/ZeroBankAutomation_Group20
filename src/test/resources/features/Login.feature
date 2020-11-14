@@ -1,4 +1,4 @@
-@login
+@login @smoke
 Feature: As user I want to be able to login with valid credentials
 
   Background:
