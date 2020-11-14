@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
         glue = "com/zerobank/step_definitions",
         dryRun = false,
 
-        tags = "@summary_accounts_types",
+        tags = "@log_out",
 
         publish = true
 
