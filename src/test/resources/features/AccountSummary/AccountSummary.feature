@@ -1,4 +1,4 @@
-@account_summary
+@account_summary @smoke
 Feature: As a user I want to be able to navigate in accounts in Accounts Activity
 
   Background:
