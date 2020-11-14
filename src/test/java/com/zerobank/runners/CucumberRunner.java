@@ -18,9 +18,9 @@ import org.junit.runner.RunWith;
         glue = "com/zerobank/step_definitions",
         dryRun = false,
 
-        tags = "@summary_accounts_types"
+        tags = "@summary_accounts_types",
 
-        publish = true,
+        publish = true
 
 
 )
