@@ -29,3 +29,9 @@ Feature: As user I want to be able to login with valid credentials
     Then user should be able to logout
 
 
+#   Scenario: Logging out of application
+#    When user logs in
+#    And user should see "Zero - Account Summary" displayed
+#    Then user should be able to logout
+
+
