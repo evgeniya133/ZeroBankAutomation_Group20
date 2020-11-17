@@ -39,4 +39,15 @@ public class AccountActivityPage extends BasePage{
         Assert.assertEquals("Savings option is not selected by default! Test Failed!!", expectedOption, actualOption);
     }
 
+    public void clickOnDropdown() {
+        accountDropDown.click();
+    }
+
+    public void verifyOptions(List<String> expectedOptions){
+
+        List<String> actualOptions = BrowserUtils.getElementsText(BrowserUtils.getSelectDropdownOptions(accountDropDown));
+        Assert.assertEquals("Options are not matching. Test Failed!!!", expectedOptions, actualOptions);
+
+    }
+
 }
