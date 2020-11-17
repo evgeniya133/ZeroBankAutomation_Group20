@@ -39,3 +39,4 @@ Feature: As user I want to be able to login with valid credentials
 
   # Group 20 is the best group in batch #20
 
+# Making practice, nothing fancy
