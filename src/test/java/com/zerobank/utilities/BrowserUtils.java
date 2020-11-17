@@ -20,6 +20,14 @@ public class BrowserUtils {
         return select;
     }
 
+    public static List<WebElement> getSelectDropdownOptions(WebElement element){
+        Select select = getSelectDropdown(element);
+        wait.until(ExpectedConditions.visibilityOfAllElements(select.getOptions()));
+
+        List<WebElement> dropdownOptions = new ArrayList<>(select.getOptions());
+        return dropdownOptions;
+    }
+
     public static void wait(int seconds) {
         try {
             Thread.sleep(seconds * 1000);
