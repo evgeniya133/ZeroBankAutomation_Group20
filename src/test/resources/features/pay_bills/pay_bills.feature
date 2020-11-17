@@ -28,3 +28,29 @@ Feature: Pay Bills
       | Description | Laptop payment |
     And user clicks the pay button
     Then the message "The payment was successfully submitted." should be displayed if payment is successful
+
+
+
+#  Scenario: As a user a should be able to pay a bill
+#    When user enters the following information to pay a bill
+#      | Payee       | Apple          |
+#      | Account     | Checking       |
+#      | Amount      | 250            |
+#      | Date        | 2020-11-1      |
+#      | Description | Laptop payment |
+#    And user clicks the pay button
+#    Then the message "The payment was successfully submitted." should be displayed if payment is successful  Scenario: As a user a should be able to pay a bill
+#    When user enters the following information to pay a bill
+#      | Payee       | Apple          |
+#      | Account     | Checking       |
+#      | Amount      | 250            |
+#      | Date        | 2020-11-1      |
+#      | Description | Laptop payment |
+#    And user clicks the pay button
+#    Then the message "The payment was successfully submitted." should be displayed if payment is successful
+
+
+
+  AKRAM
+
+   Mijat showing git GUI
