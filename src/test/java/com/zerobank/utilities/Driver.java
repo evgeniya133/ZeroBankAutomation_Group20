@@ -3,6 +3,7 @@ package com.zerobank.utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -39,6 +40,11 @@ public class Driver {
                     case "edge":
                         WebDriverManager.edgedriver().setup();
                         driverPool.set(new EdgeDriver());
+                        break;
+
+                    case "chrome-headless":
+                        WebDriverManager.chromedriver().setup();
+                        driverPool.set(new ChromeDriver(new ChromeOptions().setHeadless(true)));
                         break;
 
                     case "remote-chrome":
